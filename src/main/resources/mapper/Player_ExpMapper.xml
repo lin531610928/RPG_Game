@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moe.dao.Player_ExpMapper">
+  <resultMap id="BaseResultMap" type="com.moe.model.Player_Exp">
+    <id column="Player_level" jdbcType="INTEGER" property="player_level" />
+    <result column="Player_needexp" jdbcType="INTEGER" property="player_needexp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Player_level, Player_needexp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Player_Exp
+    where Player_level = #{player_level,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Player_Exp
+    where Player_level = #{player_level,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.moe.model.Player_Exp">
+    insert into Player_Exp (Player_level, Player_needexp)
+    values (#{player_level,jdbcType=INTEGER}, #{player_needexp,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.moe.model.Player_Exp">
+    insert into Player_Exp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="player_level != null">
+        Player_level,
+      </if>
+      <if test="player_needexp != null">
+        Player_needexp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="player_level != null">
+        #{player_level,jdbcType=INTEGER},
+      </if>
+      <if test="player_needexp != null">
+        #{player_needexp,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.moe.model.Player_Exp">
+    update Player_Exp
+    <set>
+      <if test="player_needexp != null">
+        Player_needexp = #{player_needexp,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Player_level = #{player_level,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.moe.model.Player_Exp">
+    update Player_Exp
+    set Player_needexp = #{player_needexp,jdbcType=INTEGER}
+    where Player_level = #{player_level,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+div#main {
+			background-color: rgba(255, 255, 255, 0.30);
+		}
+		
+		div#regest {
+			border-radius: 20px;
+			position: absolute;
+			margin-top: 120px;
+			margin-left: 30%;
+			margin-right: auto;
+			margin-bottom: auto;
+			background-color: rgba(255, 255, 255, 0.50);
+		}
+		
+		div.usr {
+			height: 35px;
+		}
+		
+		div.password {
+			height: 65px
+		}
+		
+		div.button {}
+		
+		input.button_ok {
+			border-radius: 20px;
+			background-color: rgba(96, 95, 167, 1.00);
+			width: 250px;
+			height: 55px;
+			font-size: 30px;
+			font-family: "微软雅黑", "黑体";
+			color: rgba(255, 255, 255, 1.00);
+			border: 0;
+		}
+		
+		h3 {
+			font-size: 36px;
+			font-family: "微软雅黑", "黑体";
+			color: rgba(122, 122, 122, 1.00)
+		}
+		
+		div.title {
+			margin-top: 30px;
+		}
+		
+		div.login {
+			margin-top: 50px;
+		}
+		
+		div.login_button {
+			border-radius: 10px;
+			background-color: rgba(126, 213, 136, 1.00);
+			margin-left: 35%;
+			width: 30%;
+			position: absolute;
+		}
+		
+		a {
+			text-decoration: none
+		}
+		
+		body {
+			background-color: rgba(220, 220, 220, 1.00)
+		}
+		
+		p {
+			color: rgba(255, 110, 0, 1.00);
+			font-family: "微软雅黑", "黑体";
+		}

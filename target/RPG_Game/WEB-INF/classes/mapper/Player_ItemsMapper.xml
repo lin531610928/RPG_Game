@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moe.dao.Player_ItemsMapper">
+  <resultMap id="BaseResultMap" type="com.moe.model.Player_Items">
+    <result column="Player_id" jdbcType="INTEGER" property="player_id" />
+    <result column="Item_id" jdbcType="INTEGER" property="item_id" />
+    <result column="Item_num" jdbcType="INTEGER" property="item_num" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Player_id, Item_id, Item_num
+  </sql>
+  <select id="selectByPlayerid" parameterType="com.moe.model.Player_Items" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from Player_Items
+    where Player_id = #{player_id,jdbcType=INTEGER} and Item_id = #{item_id,jdbcType=INTEGER}
+  </select>
+  <update id="updateByPlayerid" parameterType="com.moe.model.Player_Items">
+    update Player_Items
+    <set>
+      <if test="item_num != null">
+        item_num = #{item_num,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Player_id = #{player_id,jdbcType=INTEGER} and Item_id = #{item_id,jdbcType=INTEGER}
+  </update>
+  <insert id="insert" parameterType="com.moe.model.Player_Items">
+    insert into Player_Items (Player_id, Item_id, Item_num
+      )
+    values (#{player_id,jdbcType=INTEGER}, #{item_id,jdbcType=INTEGER}, #{item_num,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.moe.model.Player_Items">
+    insert into Player_Items
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="player_id != null">
+        Player_id,
+      </if>
+      <if test="item_id != null">
+        Item_id,
+      </if>
+      <if test="item_num != null">
+        Item_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="player_id != null">
+        #{player_id,jdbcType=INTEGER},
+      </if>
+      <if test="item_id != null">
+        #{item_id,jdbcType=INTEGER},
+      </if>
+      <if test="item_num != null">
+        #{item_num,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moe.dao.Card_ExpMapper">
+  <resultMap id="BaseResultMap" type="com.moe.model.Card_Exp">
+    <id column="Card_level" jdbcType="INTEGER" property="card_level" />
+    <result column="Card_needexp" jdbcType="INTEGER" property="card_needexp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Card_level, Card_needexp
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Card_Exp
+    where Card_level = #{card_level,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Card_Exp
+    where Card_level = #{card_level,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.moe.model.Card_Exp">
+    insert into Card_Exp (Card_level, Card_needexp)
+    values (#{card_level,jdbcType=INTEGER}, #{card_needexp,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.moe.model.Card_Exp">
+    insert into Card_Exp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="card_level != null">
+        Card_level,
+      </if>
+      <if test="card_needexp != null">
+        Card_needexp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="card_level != null">
+        #{card_level,jdbcType=INTEGER},
+      </if>
+      <if test="card_needexp != null">
+        #{card_needexp,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.moe.model.Card_Exp">
+    update Card_Exp
+    <set>
+      <if test="card_needexp != null">
+        Card_needexp = #{card_needexp,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Card_level = #{card_level,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.moe.model.Card_Exp">
+    update Card_Exp
+    set Card_needexp = #{card_needexp,jdbcType=INTEGER}
+    where Card_level = #{card_level,jdbcType=INTEGER}
+  </update>
+</mapper>

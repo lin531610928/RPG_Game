@@ -1,0 +1,42 @@
+.mTips {
+	position: fixed;
+	padding: 8px 12px;
+	color: #fff;
+	border-radius: 5px;
+	font-family: "微软雅黑";
+	z-index: 999;
+	display: inline;
+	font-size: 14px;
+}
+
+.mTips-default {
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}
+
+.mTips-success {
+	background-color: rgba(92, 184, 92, 0.8);
+	color: #fff;
+}
+
+.mTips-info {
+	background-color: rgba(255,255, 255, 1);
+	color: #fff;
+}
+
+.mTips-warning {
+	background-color: rgba(240, 173, 78, 0.8);
+	color: #fff;
+}
+
+.mTips-danger {
+	background-color: rgba(217, 83, 79, 0.8);
+	color: #fff;
+}
+
+.mTips-white {
+	border: solid rgba(0,0,0,0.20) 2px;
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+	background-color: rgba(255, 255, 255, 1.00);
+	color: #000;
+}

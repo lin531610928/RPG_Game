@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moe.dao.CardsMapper">
+  <resultMap id="BaseResultMap" type="com.moe.model.Cards">
+    <id column="Card_id" jdbcType="INTEGER" property="card_id" />
+    <result column="Card_rare" jdbcType="VARCHAR" property="card_rare" />
+    <result column="Card_name" jdbcType="VARCHAR" property="card_name" />
+    <result column="Card_ability_min" jdbcType="INTEGER" property="card_ability_min" />
+    <result column="Card_ability_max" jdbcType="INTEGER" property="card_ability_max" />
+    <result column="Card_skill_desc" jdbcType="VARCHAR" property="card_skill_desc" />
+    <result column="Card_skill_type" jdbcType="VARCHAR" property="card_skill_type" />
+    <result column="Card_path" jdbcType="VARCHAR" property="card_path" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Card_id, Card_rare, Card_name, Card_ability_min, Card_ability_max, Card_skill_desc, 
+    Card_skill_type, Card_path
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Cards
+    where Card_id = #{card_id,jdbcType=INTEGER}
+  </select>
+  <select id="selectCardCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select
+    Count(card_id)
+    from Cards
+    where card_rare = #{card_rare,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Cards
+    where Card_id = #{card_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.moe.model.Cards">
+    insert into Cards (Card_id, Card_rare, Card_name, 
+      Card_ability_min, Card_ability_max, Card_skill_desc, 
+      Card_skill_type, Card_path)
+    values (#{card_id,jdbcType=INTEGER}, #{card_rare,jdbcType=VARCHAR}, #{card_name,jdbcType=VARCHAR}, 
+      #{card_ability_min,jdbcType=INTEGER}, #{card_ability_max,jdbcType=INTEGER}, #{card_skill_desc,jdbcType=VARCHAR}, 
+      #{card_skill_type,jdbcType=VARCHAR}, #{card_path,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.moe.model.Cards">
+    insert into Cards
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="card_id != null">
+        Card_id,
+      </if>
+      <if test="card_rare != null">
+        Card_rare,
+      </if>
+      <if test="card_name != null">
+        Card_name,
+      </if>
+      <if test="card_ability_min != null">
+        Card_ability_min,
+      </if>
+      <if test="card_ability_max != null">
+        Card_ability_max,
+      </if>
+      <if test="card_skill_desc != null">
+        Card_skill_desc,
+      </if>
+      <if test="card_skill_type != null">
+        Card_skill_type,
+      </if>
+      <if test="card_path != null">
+        Card_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="card_id != null">
+        #{card_id,jdbcType=INTEGER},
+      </if>
+      <if test="card_rare != null">
+        #{card_rare,jdbcType=VARCHAR},
+      </if>
+      <if test="card_name != null">
+        #{card_name,jdbcType=VARCHAR},
+      </if>
+      <if test="card_ability_min != null">
+        #{card_ability_min,jdbcType=INTEGER},
+      </if>
+      <if test="card_ability_max != null">
+        #{card_ability_max,jdbcType=INTEGER},
+      </if>
+      <if test="card_skill_desc != null">
+        #{card_skill_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="card_skill_type != null">
+        #{card_skill_type,jdbcType=VARCHAR},
+      </if>
+      <if test="card_path != null">
+        #{card_path,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.moe.model.Cards">
+    update Cards
+    <set>
+      <if test="card_rare != null">
+        Card_rare = #{card_rare,jdbcType=VARCHAR},
+      </if>
+      <if test="card_name != null">
+        Card_name = #{card_name,jdbcType=VARCHAR},
+      </if>
+      <if test="card_ability_min != null">
+        Card_ability_min = #{card_ability_min,jdbcType=INTEGER},
+      </if>
+      <if test="card_ability_max != null">
+        Card_ability_max = #{card_ability_max,jdbcType=INTEGER},
+      </if>
+      <if test="card_skill_desc != null">
+        Card_skill_desc = #{card_skill_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="card_skill_type != null">
+        Card_skill_type = #{card_skill_type,jdbcType=VARCHAR},
+      </if>
+      <if test="card_path != null">
+        Card_path = #{card_path,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Card_id = #{card_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.moe.model.Cards">
+    update Cards
+    set Card_rare = #{card_rare,jdbcType=VARCHAR},
+      Card_name = #{card_name,jdbcType=VARCHAR},
+      Card_ability_min = #{card_ability_min,jdbcType=INTEGER},
+      Card_ability_max = #{card_ability_max,jdbcType=INTEGER},
+      Card_skill_desc = #{card_skill_desc,jdbcType=VARCHAR},
+      Card_skill_type = #{card_skill_type,jdbcType=VARCHAR},
+      Card_path = #{card_path,jdbcType=VARCHAR}
+    where Card_id = #{card_id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+#background{
+	background-image: url( ../img/bg03.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: 0% 20%;
+	position: relative
+}
+h1.whiteChar,.whiteChar {
+	color: #FFFFFF;
+	font-family:"Microsoft YaHei UI"
+}
+a.link
+{
+	position: relative;
+	margin-left: 2%;
+	margin-right: 2%;
+	width: 12%
+}
+div.infomation{
+	margin-top: 10%;
+	margin-bottom: 10%;
+	position: relative;
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 25px;
+}
+div.little{
+	text-align: center;
+	font-family:"Microsoft YaHei UI";
+	border: solid rgba(200,200,200,1.00) 1px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+}
+img.tile-image{
+	height: 192px;
+}
+.littleButton{
+	width: 50%;
+	margin: 10% 0 5% 25%;
+		
+}
+p.blackFont{
+	 margin: 5% 0 0% 0%;
+	font-family: "Microsoft YaHei UI";
+	font-size: 18px
+}
+.blackFont{
+	font-family: "Microsoft YaHei UI";
+	color: rgba(54,54,54,1.00)
+}
+div.col-lg-offset-15{
+	margin-left: 12%
+}
+
+#searchArea {
+	line-height: 35px;
+	position: relative;
+}
+
+.floatRight {
+	float: right;
+}
+#backgroundTop{
+	background-image: url(../img/bg06.png);
+}

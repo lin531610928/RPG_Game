@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+.cardImage{
+	width: 95%;
+	margin:3px;
+	border-radius: 10px;
+	border: solid rgba(200,200,200,1.00) 1.5px
+}
+.cardLine{
+	margin-top: 2%;
+}
+.infomationDrawCard{
+	margin: 1% 0 0 1%;
+}
+#backgroundDrawCard{
+	background-image: url( ../img/bg04.jpg);
+	background-size: cover;
+	position: relative
+}
+.hoverBlock{
+	z-index: 5;
+	position: absolute;
+	background-color: rgba(255,255,255,1.00)
+}
+.whiteBlocks{
+	background-color: #FFFFFF;
+	padding: 0px 5px 0px 5px;
+	margin: 0% 0px 0 10px;
+}
+#tenDraws{
+	background-color:rgba(255,126,186,1.00);
+}
+#tenDraws:hover{
+	background-color:rgba(196,75,128,1.00);
+}
+  .col-lg-offset-12 {
+    margin-left: 13.33%;
+  }
+
+#tenDraw,#oneDraw {
+	margin-bottom: 3%
+}

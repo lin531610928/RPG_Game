@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moe.dao.NpcMapper">
+  <resultMap id="BaseResultMap" type="com.moe.model.Npc">
+    <id column="Npc_id" jdbcType="INTEGER" property="npc_id" />
+    <result column="Npc_name" jdbcType="VARCHAR" property="npc_name" />
+    <result column="Npc_hp" jdbcType="INTEGER" property="npc_hp" />
+    <result column="Npc_ability" jdbcType="INTEGER" property="npc_ability" />
+    <result column="Npc_ability_d" jdbcType="INTEGER" property="npc_ability_d" />
+    <result column="Npc_dropexp" jdbcType="INTEGER" property="npc_dropexp" />
+    <result column="Npc_path" jdbcType="VARCHAR" property="npc_path" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Npc_id, Npc_name, Npc_hp, Npc_ability, Npc_ability_d, Npc_dropexp, Npc_path
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Npc
+    where Npc_id = #{npc_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Npc
+    where Npc_id = #{npc_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.moe.model.Npc">
+    insert into Npc (Npc_id, Npc_name, Npc_hp, 
+      Npc_ability, Npc_ability_d, Npc_dropexp, 
+      Npc_path)
+    values (#{npc_id,jdbcType=INTEGER}, #{npc_name,jdbcType=VARCHAR}, #{npc_hp,jdbcType=INTEGER}, 
+      #{npc_ability,jdbcType=INTEGER}, #{npc_ability_d,jdbcType=INTEGER}, #{npc_dropexp,jdbcType=INTEGER}, 
+      #{npc_path,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.moe.model.Npc">
+    insert into Npc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="npc_id != null">
+        Npc_id,
+      </if>
+      <if test="npc_name != null">
+        Npc_name,
+      </if>
+      <if test="npc_hp != null">
+        Npc_hp,
+      </if>
+      <if test="npc_ability != null">
+        Npc_ability,
+      </if>
+      <if test="npc_ability_d != null">
+        Npc_ability_d,
+      </if>
+      <if test="npc_dropexp != null">
+        Npc_dropexp,
+      </if>
+      <if test="npc_path != null">
+        Npc_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="npc_id != null">
+        #{npc_id,jdbcType=INTEGER},
+      </if>
+      <if test="npc_name != null">
+        #{npc_name,jdbcType=VARCHAR},
+      </if>
+      <if test="npc_hp != null">
+        #{npc_hp,jdbcType=INTEGER},
+      </if>
+      <if test="npc_ability != null">
+        #{npc_ability,jdbcType=INTEGER},
+      </if>
+      <if test="npc_ability_d != null">
+        #{npc_ability_d,jdbcType=INTEGER},
+      </if>
+      <if test="npc_dropexp != null">
+        #{npc_dropexp,jdbcType=INTEGER},
+      </if>
+      <if test="npc_path != null">
+        #{npc_path,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.moe.model.Npc">
+    update Npc
+    <set>
+      <if test="npc_name != null">
+        Npc_name = #{npc_name,jdbcType=VARCHAR},
+      </if>
+      <if test="npc_hp != null">
+        Npc_hp = #{npc_hp,jdbcType=INTEGER},
+      </if>
+      <if test="npc_ability != null">
+        Npc_ability = #{npc_ability,jdbcType=INTEGER},
+      </if>
+      <if test="npc_ability_d != null">
+        Npc_ability_d = #{npc_ability_d,jdbcType=INTEGER},
+      </if>
+      <if test="npc_dropexp != null">
+        Npc_dropexp = #{npc_dropexp,jdbcType=INTEGER},
+      </if>
+      <if test="npc_path != null">
+        Npc_path = #{npc_path,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Npc_id = #{npc_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.moe.model.Npc">
+    update Npc
+    set Npc_name = #{npc_name,jdbcType=VARCHAR},
+      Npc_hp = #{npc_hp,jdbcType=INTEGER},
+      Npc_ability = #{npc_ability,jdbcType=INTEGER},
+      Npc_ability_d = #{npc_ability_d,jdbcType=INTEGER},
+      Npc_dropexp = #{npc_dropexp,jdbcType=INTEGER},
+      Npc_path = #{npc_path,jdbcType=VARCHAR}
+    where Npc_id = #{npc_id,jdbcType=INTEGER}
+  </update>
+</mapper>

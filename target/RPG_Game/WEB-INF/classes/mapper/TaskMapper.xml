@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moe.dao.TaskMapper">
+  <resultMap id="BaseResultMap" type="com.moe.model.Task">
+    <id column="Task_id" jdbcType="INTEGER" property="task_id" />
+    <result column="Task_name" jdbcType="VARCHAR" property="task_name" />
+    <result column="Task_aim" jdbcType="INTEGER" property="task_aim" />
+    <result column="Task_award" jdbcType="INTEGER" property="task_award" />
+    <result column="Task_award_desc" jdbcType="VARCHAR" property="task_award_desc" />
+    <result column="Task_type" jdbcType="INTEGER" property="task_type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Task_id, Task_name, Task_aim, Task_award, Task_award_desc, Task_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Task
+    where Task_id = #{task_id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from Task
+  </select>
+  <select id="selectNum" resultType="java.lang.Integer">
+    select
+    Count(*)
+    from Task
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Task
+    where Task_id = #{task_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.moe.model.Task">
+    insert into Task (Task_id, Task_name, Task_aim, 
+      Task_award, Task_award_desc, Task_type
+      )
+    values (#{task_id,jdbcType=INTEGER}, #{task_name,jdbcType=VARCHAR}, #{task_aim,jdbcType=INTEGER}, 
+      #{task_award,jdbcType=INTEGER}, #{task_award_desc,jdbcType=VARCHAR}, #{task_type,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.moe.model.Task">
+    insert into Task
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="task_id != null">
+        Task_id,
+      </if>
+      <if test="task_name != null">
+        Task_name,
+      </if>
+      <if test="task_aim != null">
+        Task_aim,
+      </if>
+      <if test="task_award != null">
+        Task_award,
+      </if>
+      <if test="task_award_desc != null">
+        Task_award_desc,
+      </if>
+      <if test="task_type != null">
+        Task_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="task_id != null">
+        #{task_id,jdbcType=INTEGER},
+      </if>
+      <if test="task_name != null">
+        #{task_name,jdbcType=VARCHAR},
+      </if>
+      <if test="task_aim != null">
+        #{task_aim,jdbcType=INTEGER},
+      </if>
+      <if test="task_award != null">
+        #{task_award,jdbcType=INTEGER},
+      </if>
+      <if test="task_award_desc != null">
+        #{task_award_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="task_type != null">
+        #{task_type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.moe.model.Task">
+    update Task
+    <set>
+      <if test="task_name != null">
+        Task_name = #{task_name,jdbcType=VARCHAR},
+      </if>
+      <if test="task_aim != null">
+        Task_aim = #{task_aim,jdbcType=INTEGER},
+      </if>
+      <if test="task_award != null">
+        Task_award = #{task_award,jdbcType=INTEGER},
+      </if>
+      <if test="task_award_desc != null">
+        Task_award_desc = #{task_award_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="task_type != null">
+        Task_type = #{task_type,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Task_id = #{task_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.moe.model.Task">
+    update Task
+    set Task_name = #{task_name,jdbcType=VARCHAR},
+      Task_aim = #{task_aim,jdbcType=INTEGER},
+      Task_award = #{task_award,jdbcType=INTEGER},
+      Task_award_desc = #{task_award_desc,jdbcType=VARCHAR},
+      Task_type = #{task_type,jdbcType=INTEGER}
+    where Task_id = #{task_id,jdbcType=INTEGER}
+  </update>
+</mapper>

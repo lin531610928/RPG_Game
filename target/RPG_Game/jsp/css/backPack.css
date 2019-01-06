@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+#backgroundBackPack{
+	background-image: url( ../img/bg05.jpg);
+	background-size: cover;
+	position: relative
+}
+.Team , .Backpack{
+	width: 95%;
+	margin:10px 0 0 0;
+	border-radius: 10px;
+-webkit-clip-path: polygon(50% 5%, 100% 30%, 100% 63%, 50% 85%, 0 63%, 0% 30%);
+clip-path: polygon(50% 5%, 100% 30%, 100% 63%, 50% 85%, 0 63%, 0% 30%);
+}
+
+.littlePack {
+	background-color: #FFFFFF;
+	text-align: center;
+	font-family:"Microsoft YaHei UI";
+	border: solid rgba(200,200,200,1.00) 1px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+	margin: 0px 5px 0px 5px
+}
+
+.divPack {
+	margin-top: 1%;
+}
+
+.grayDiv {
+	background-color: rgba(240,240,240,1.00);
+	margin-top: 1%;
+	padding-bottom: 1%;
+}
+
+.deleteButton {
+	width: 20%;
+	margin: 2% 0 100px 40%;
+	padding: 5px;
+}
+.blockImg{
+	float: right;
+	width: 100%;
+	z-index: 5;
+}
+.skillImg{
+	z-index: 1000;
+	position:absolute;
+	bottom: 4%;
+	right: 25%;
+	height: 25%;
+}
+
